@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pool Hours</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Harvard's Blodgett and MAC pool hours at a glance: open now, until when, and the week ahead. An unofficial page.">
+<!-- The front door for Pool Hours: texts and social apps read the lines below to show a preview of the link, then
+     visitors go straight on to the pool page (the Google Apps Script page), with anything after the "?" kept, so
+     https://blodgetthours.github.io/?me=1 still leaves your own phone or computer out of the counter. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pool Hours">
+<meta property="og:title" content="Pool Hours: Blodgett and MAC">
+<meta property="og:description" content="Harvard's Blodgett and MAC pool hours at a glance: open now, until when, and the week ahead. An unofficial page.">
+<meta property="og:url" content="https://blodgetthours.github.io/">
+<meta property="og:image" content="https://blodgetthours.github.io/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pool Hours, Blodgett and MAC: a crimson panel beside swimming lanes and lane ropes seen from above">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blodgetthours.github.io/preview.jpg">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#F1F5F8;color:#0B2A45;font:18px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:center;padding:0 16px}
+  a{color:#A51C30;font-weight:600}
+</style>
+<script>
+  // The pool page's address: in Apps Script, Deploy > Manage deployments, the Web app URL (it ends in /exec).
+  var POOL_PAGE = 'PASTE-YOUR-POOL-PAGE-ADDRESS-HERE';
+  var READY = /^https:\/\/script\.google\.com\/\S+\/exec$/.test(POOL_PAGE);
+  if (READY) location.replace(POOL_PAGE + location.search);
+</script>
+</head>
+<body>
+<p id="msg">Opening Pool Hours&hellip;<br><a id="go" href="#">Tap here</a> if nothing happens.</p>
+<script>
+  if (READY) document.getElementById('go').href = POOL_PAGE + location.search;
+  else document.getElementById('msg').textContent = 'Almost there: the pool page\'s address still needs to go into index.html.';
+</script>
+</body>
+</html>
